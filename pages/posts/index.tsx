@@ -35,7 +35,7 @@ export default function PostList({ posts }: IProps) {
       <div>
         <Button onClick={handleClickPush}>Use router push</Button>
       </div>
-      {posts.map((i) => {
+      {posts.map((i: any) => {
         return <div key={i.id}>{i.id}</div>;
       })}
     </div>
