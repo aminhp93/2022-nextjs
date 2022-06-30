@@ -1,9 +1,13 @@
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import { EmptyLayout } from '@/components/layout';
 import { ILayout } from '@/models/index';
+import { createEmotionCache, theme } from '@/utils';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material/styles';
+
+const clientSideEmotionCache = createEmotionCache();
 
 export type NextPageWithLayout = NextPage & {
   Layout?: (props: ILayout) => ReactElement;
@@ -18,8 +22,12 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
 
   return (
-    <Layout>
-      <Component {...pageProps} />)
-    </Layout>
+    <CacheProvider value={clientSideEmotionCache}>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </CacheProvider>
   );
 }

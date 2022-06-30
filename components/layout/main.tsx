@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { ILayout } from '@/models/index';
-import Link from 'next/link';
+import { Stack } from '@mui/material';
+import { Box } from '@mui/system';
+import Header from '@/components/common/header';
+import Footer from '@/components/common/footer';
 
 export function MainLayout({ children }: ILayout) {
   return (
-    <div>
-      <h1>Mainlayout</h1>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-
-      <div>{children}</div>
-    </div>
+    <Stack minHeight="100vh">
+      <Header />
+      <Box component="main" flexGrow={1}>
+        {children}
+      </Box>
+      <Footer />
+    </Stack>
   );
 }

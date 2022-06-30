@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { Button } from 'antd';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
+import Button from '@mui/material/Button';
 
 export interface IProps {
   posts: any;
@@ -33,7 +33,9 @@ export default function PostList({ posts }: IProps) {
         </Link>
       </div>
       <div>
-        <Button onClick={handleClickPush}>Use router push</Button>
+        <Button variant="contained" onClick={handleClickPush}>
+          Use router push
+        </Button>
       </div>
       {posts.map((i: any) => {
         return <div key={i.id}>{i.id}</div>;
