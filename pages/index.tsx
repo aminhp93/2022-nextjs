@@ -3,6 +3,7 @@ import { NextPageWithLayout } from './_app';
 import { FeaturedWorks, RecentPosts, Hero } from '@/components/home';
 import { Box } from '@mui/material';
 import { Seo } from '@/components/common';
+import BashProfile from '@/pages/bash-profile';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPageWithLayout = () => {
       <RecentPosts />
       <FeaturedWorks />
     </Box>
+    // <BashProfile />
   );
 };
 
