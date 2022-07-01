@@ -2,8 +2,7 @@ import * as React from 'react';
 import { ILayout } from '@/models/index';
 import { Stack } from '@mui/material';
 import { Box } from '@mui/system';
-import Header from '@/components/common/header';
-import Footer from '@/components/common/footer';
+import { Header, Footer } from '@/components/common';
 
 export function MainLayout({ children }: ILayout) {
   return (
